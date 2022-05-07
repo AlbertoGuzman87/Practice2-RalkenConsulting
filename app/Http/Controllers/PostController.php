@@ -38,4 +38,15 @@ class PostController extends Controller
             'user' => $user
         ]);
     }
+
+    public function get_list_albums($userId)
+    {
+        $albums = Http::get('https://jsonplaceholder.typicode.com/albums')->json();
+        $user = Http::get("https://jsonplaceholder.typicode.com/users/$userId")->json();
+        $collectionAlbums = collect($albums)->where('userId', $userId);
+        return view('albums.index', [
+            'collectionAlbums' => $collectionAlbums,
+            'user' => $user
+        ]);
+    }
 }

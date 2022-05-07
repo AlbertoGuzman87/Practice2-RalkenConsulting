@@ -44,20 +44,28 @@
     </div>
 @endsection
 @section('body')
-    <h3 class="text-center mt-5 mb-3 upper" style="letter-spacing: 2.5px"> Posts de
+    <h3 class="text-center mt-5 mb-3 upper" style="letter-spacing: 2.5px"> Albums de
         {{ $user['name'] }}
     </h3>
     <center>
         <div class="linea"></div>
     </center>
+
     <div class="row">
-        @foreach ($collectionPosts as $collectionPost)
-            <div class="col-sm-6">
-                <div class="card mt-2 mb-2">
-                    <div class="card-body">
-                        <h5 class="card-title upper">{{ $collectionPost['title'] }}</h5>
-                        <p class="card-text">{{ $collectionPost['body'] }}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+        @foreach ($collectionAlbums as $collectionAlbum)
+            <div class="col-sm-12 col-md-4 mt-2 mb-2">
+                <div class="card-deck">
+                    <div class="card">
+                        <div class="card-body" style="height: 18vh">
+                            <h5 class="card-title upper">{{ $collectionAlbum['title'] }}</h5>
+
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-dark">Abrir Carpeta
+                                <i class="fas fa-folder"></i>
+                                <span class="badge" style="translate: x">9</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
