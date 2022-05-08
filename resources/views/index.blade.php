@@ -89,7 +89,7 @@
     </main>
     <style>
         img {
-            height: 80vh;
+            height: 40vh;
             object-fit: cover
         }
 

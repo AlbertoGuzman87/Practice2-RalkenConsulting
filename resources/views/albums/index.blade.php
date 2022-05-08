@@ -61,9 +61,13 @@
 
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-dark">Abrir Carpeta
+                            <a href="{{ route('posts.get_list_photos', $collectionAlbum['id']) }}" class="btn btn-dark">Abrir Carpeta
                                 <i class="fas fa-folder"></i>
-                                <span class="badge" style="translate: x">9</span>
+                                <span class="badge">
+                                    <span data-purecounter-start="0"
+                                        data-purecounter-end="{{ $countPhotos[$collectionAlbum['id']] }}"
+                                        class="purecounter">0</span>
+                                </span>
                             </a>
                         </div>
                     </div>

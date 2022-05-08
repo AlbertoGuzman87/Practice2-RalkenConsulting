@@ -44,9 +44,26 @@ class PostController extends Controller
         $albums = Http::get('https://jsonplaceholder.typicode.com/albums')->json();
         $user = Http::get("https://jsonplaceholder.typicode.com/users/$userId")->json();
         $collectionAlbums = collect($albums)->where('userId', $userId);
+
+        $photos = Http::get('https://jsonplaceholder.typicode.com/photos')->json();
+        $collectionPhotos = collect($photos);
+        $countPhotos = $collectionPhotos->countBy('albumId');
         return view('albums.index', [
             'collectionAlbums' => $collectionAlbums,
+            'countPhotos' => $countPhotos,
             'user' => $user
+        ]);
+    }
+
+    public function get_list_photos($albumId)
+    {
+        $photos = Http::get('https://jsonplaceholder.typicode.com/photos')->json();
+        $album = Http::get("https://jsonplaceholder.typicode.com/albums/$albumId")->json();
+        $collectionPhotos = collect($photos)->where('albumId', $albumId);
+
+        return view('albums.show', [
+            'collectionPhotos' => $collectionPhotos,
+            'album' => $album
         ]);
     }
 }
