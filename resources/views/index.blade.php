@@ -71,7 +71,8 @@
                                                 class="purecounter">0</span>!
                                         </span>
                                     </a>
-                                    <a href="" class="btn btn-outline-success btn-xs">
+                                    <a href="{{ route('posts.get_list_albums', $user['id']) }}"
+                                        class="btn btn-outline-success btn-xs">
                                         Albums <span class="badge badge-dark">
                                             <span data-purecounter-start="0"
                                                 data-purecounter-end="{{ $countAlbums[$user['id']] }}"
@@ -86,11 +87,11 @@
             @endforeach
         </div>
     </main>
-@endsection
-<style>
-    img {
-        height: 80vh;
-        object-fit: cover
-    }
+    <style>
+        img {
+            height: 40vh;
+            object-fit: cover
+        }
 
-</style>
+    </style>
+@endsection
